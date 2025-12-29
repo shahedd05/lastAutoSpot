@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parking Booking</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Choose_spot.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+ <!-- Navbar -->
+ <div class="navbar">
+  <div class="logo-container">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="autoSpot logo">
+    <div class="logo-text">autoSpot</div>
+  </div>
+  <div class="nav-links">
+    <a href="\choose_location"> Home</a>
+      <a href="\index" id="logout"> Logout</a>
+    <div class="dropdown" id="menuDropdown">
+      <a href="javascript:void(0);" class="menu-toggle"><i class="fas fa-bars"></i></a>
+      <div class="dropdown-content scrollable-dropdown">
+        <div class="dropdown settings-dropdown" id="settingsDropdown">
+          <a href="javascript:void(0);" class="settings-toggle">
+            <i class="fas fa-cog"></i> <span id="settingsLabel">Settings</span>
+          </a>
+          <div class="settings-menu">
+            <a href="#" id="translateOption">🌐 العربية</a>
+            <a href="#" id="lightModeOption">🌞 Light Mode</a>
+          </div>
+        </div>
+        <div class="contact-dropdown">
+          <a href="#" id="contactLabel">Contact Us</a>
+          <div class="contact-info">
+            <div><span id="phoneNumber"><i class="fas fa-phone contact-icon"></i> +962 79 123 4567</span></div>
+            <div><span id="emailAddress"><i class="fas fa-envelope contact-icon"></i> info@autospot.com</span></div>
+            <div><span id="whatsappNumber"><i class="fab fa-whatsapp contact-icon"></i> +962 79 987 6543</span></div>
+          </div>
+        </div>
+        <a href="#" id="aboutUsLink">About Us</a>
+        <div class="about-us-content" id="aboutUsContent">
+          <p id="aboutUsText">
+            The Smart Parking System is an innovative solution designed to improve urban traffic flow...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Title Row -->
+  <div class="title-row">
+    <h1>
+      <div id="select">Select Parking Spot</div>
+      <span class="badge">Smart Parking</span>
+    </h1>
+    <!-- ✅ ديناميكي: اسم الشركة والمحافظة -->
+    <p>{{ company }} – {{ governorate }}</p>
+  </div>
+
+  <!-- Divider -->
+  <div class="header-divider"></div>
+
+<div class="content">
+  <!-- LEFT PANEL -->
+  <aside class="details">
+    <h3>Booking Details</h3>
+    <div class="box">
+      <div><span>Spot Number</span><strong id="spotNum">—</strong></div>
+      <div><span>Floor</span><strong id="floorNum">—</strong></div>
+      
+      <div><span>Cost</span><strong id="costDisplay">2.50 JOD / day</strong></div>
+    </div>
+
+    <!-- ✅ الخدمات الإضافية -->
+    <div class="extras">
+      <h3>Extra Services (1 JOD each)</h3>
+      {% for service in services %}
+        <label>
+          <input type="checkbox" class="extra-service" value="{{ service }}">
+          {{ service }}
+        </label><br>
+      {% endfor %}
+    </div>
+
+    <button class="confirm">Confirm Booking & Pay</button>
+  </aside>
+
+  <!-- RIGHT PANEL -->
+  <section class="parking">
+    <div class="top-info">
+      <div class="timer-wrapper">
+        <small class="timer-label">Time left to book</small>
+        <div class="timer"> <span id="time">15:00</span></div>
+      </div>
+      <div class="legend">
+        <div><span class="key available"></span> Available</div>
+        <div><span class="key taken"></span> Taken</div>
+        <div><span class="key selected"></span> Selected</div>
+      </div>
+    </div>
+
+    <!-- ✅ اختيار الطابق -->
+    <div class="floor-selector">
+      <label for="floorSelect"><i class="fas fa-layer-group"></i> Select Floor:</label>
+      <select id="floorSelect">
+        {% for floor, spots_list in spots.items() %}
+          <option value="{{ floor }}">Floor {{ floor }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- ✅ عرض شبكة المواقف لكل طابق -->
+    {% for floor, spots_list in spots.items() %}
+      <div class="floor-grid" id="floor-{{ floor }}" style="display:none;">
+        <h3>Floor {{ floor }}</h3>
+        <div class="grid">
+          {% for spot in spots_list %}
+          <div class="slot {% if spot.available %}available{% else %}taken{% endif %}"
+          data-spot-id="{{ spot.id }}"
+          data-floor="{{ floor }}"
+          onclick="selectSlot(this)">
+       {{ spot.id }}
+     </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+</div>
+
+   <!-- Footer -->
+   <div class="site-footer">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    &copy; 2025 autoSpot. All rights reserved. |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Terms of Service</a>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/Choose_spot.js') }}"></script>
+</body>
+</html>

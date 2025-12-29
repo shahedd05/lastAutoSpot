@@ -1,0 +1,126 @@
+/* ===== Success Box (Default Style) ===== */
+.success-box {
+  background-color: #0b1012; /* خلفية غامقة */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 10px #B2202C,
+    0 0 10px #B2202C,
+    0 0 200px #B2202C; /* تأثير الـ glow */
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  margin: 60px auto;
+  transition: 0.3s;
+}
+
+/* ===== Titles & Text ===== */
+.success-box h2, 
+.success-box p {
+  color: #F4F1E1; /* النص الفاتح */
+  margin-bottom: 20px;
+}
+
+.success-box .refund {
+  font-size: 20px;
+  font-weight: bold;
+  color: #B2202C; /* إبراز قيمة الاسترداد */
+  margin: 15px 0;
+}
+
+/* ===== Details Section ===== */
+.details {
+  text-align: left;
+  margin: 20px 0;
+  color: #F4F1E1;
+  font-size: 16px;
+}
+
+.details p {
+  margin: 6px 0;
+}
+
+/* ===== Note Box ===== */
+.note {
+  background-color: #191919;
+  border: 2px solid #B2202C;
+  color: #F4F1E1;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  background: #252424;
+  color: #F4F1E1;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #a92828; /* hover بالأحمر */
+  transform: scale(1.05);
+}
+
+/* ===== Dark Mode ===== */
+body.dark-mode {
+  background-color: #0b1012;
+  color: #F4F1E1;
+  font-family: "Segoe UI", "Tajawal", sans-serif;
+}
+
+body.dark-mode .success-box {
+  background-color: #0b1012;
+  box-shadow:
+    0 0 10px #B2202C,
+    0 0 200px #B2202C;
+}
+
+body.dark-mode .btn {
+  background: #252424;
+  color: #F4F1E1;
+}
+
+body.dark-mode .btn:hover {
+  background: #a92828;
+}
+
+body.dark-mode .note {
+  background: #191919;
+  border: 2px solid #B2202C;
+  color: #F4F1E1;
+}
+
+/* ===== Light Mode ===== */
+body.light-mode {
+  background-color: #f5f7fa;
+  color: #333;
+  font-family: "Segoe UI", "Tajawal", sans-serif;
+}
+
+body.light-mode .success-box {
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+body.light-mode .btn {
+  background: #2e7d32;
+  color: #fff;
+}
+
+body.light-mode .btn:hover {
+  background: #1b5e20;
+}
+
+body.light-mode .note {
+  background: #fff3cd;
+  color: #856404;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>autoSpot | Verify Company</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/verify_company.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="autoSpot logo">
+      <div class="logo-text">autoSpot</div>
+    </div>
+    <div class="nav-links">
+      <a href="/index">Home</a>
+
+      
+      <div class="dropdown" id="menuDropdown">
+        <a href="javascript:void(0);" class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </a>
+        <div class="dropdown-content scrollable-dropdown">
+
+          
+          <div class="dropdown settings-dropdown" id="settingsDropdown">
+            <a href="javascript:void(0);" class="settings-toggle">
+              <i class="fas fa-cog"></i> <span id="settingsLabel">Settings</span>
+            </a>
+            <div class="settings-menu">
+              <a href="#" id="translateOption">🌐 العربية</a>
+              <a href="#" id="lightModeOption">🌞 Light Mode</a>
+            </div>
+          </div>
+
+         
+          <div class="contact-dropdown">
+            <a href="#" id="contactLabel">Contact Us</a>
+            <div class="contact-info">
+              <div><span id="phoneNumber"><i class="fas fa-phone contact-icon"></i> +962 79 123 4567</span></div>
+              <div><span id="emailAddress"><i class="fas fa-envelope contact-icon"></i> info@autospot.com</span></div>
+              <div><span id="whatsappNumber"><i class="fab fa-whatsapp contact-icon"></i> +962 79 987 6543</span></div>
+            </div>
+          </div>
+
+          <a href="#" id="aboutUsLink">About Us</a>
+          <div class="about-us-content" id="aboutUsContent">
+            <p id="aboutUsText">
+              The Smart Parking System is an innovative solution designed to improve urban traffic flow and reduce congestion. By integrating real-time sensors, GPS tracking, and an easy-to-use web interface, it helps drivers locate parking spaces quickly and efficiently...
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verification Form -->
+  <div class="verify-container">
+    <h2 id="verifyTitle">Verify Your Company</h2>
+    <label for="registerNumber" id="registerLabel">Register Number</label>
+    <input type="text" id="registerNumber" placeholder="Enter company register number">
+
+    <label for="nationalNumber" id="nationalLabel">National Number</label>
+    <input type="text" id="nationalNumber" placeholder="Enter company national number">
+
+    <button onclick="verifyCompany()" id="verifyBtn">Check Company</button>
+
+    <div id="verifyMessage" class="verify-message" style="display: none;"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="site-footer">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    &copy; 2025 autoSpot. All rights reserved. |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Terms of Service</a>
+  </div>
+
+  
+  <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/verify_company.js') }}"></script>
+</body>
+</html>

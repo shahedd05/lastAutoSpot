@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>autoSpot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/parking_setup.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="autoSpot logo">
+      <div class="logo-text">autoSpot</div>
+    </div>
+    <div class="nav-links">
+      <a href="/parking_setup">Home</a>
+      <a href="/booking-records" id="bookingRecordsLink">Booking Records</a>
+      <a href="/index" id="logoutLink">Logout</a>
+      <div class="dropdown" id="menuDropdown">
+        <a href="javascript:void(0);" class="menu-toggle"><i class="fas fa-bars"></i></a>
+        <div class="dropdown-content scrollable-dropdown">
+          <div class="dropdown settings-dropdown" id="settingsDropdown">
+            <a href="javascript:void(0);" class="settings-toggle">
+              <i class="fas fa-cog"></i> <span id="settingsLabel">Settings</span>
+            </a>
+            <div class="settings-menu">
+              <a href="#" id="translateOption">🌐 العربية</a>
+              <a href="#" id="lightModeOption">🌞 Light Mode</a>
+            </div>
+          </div>
+          <div class="contact-dropdown">
+            <a href="#" id="contactLabel">Contact Us</a>
+            <div class="contact-info">
+              <div><span id="phoneNumber"><i class="fas fa-phone contact-icon"></i> +962 79 123 4567</span></div>
+              <div><span id="emailAddress"><i class="fas fa-envelope contact-icon"></i> info@autospot.com</span></div>
+              <div><span id="whatsappNumber"><i class="fab fa-whatsapp contact-icon"></i> +962 79 987 6543</span></div>
+            </div>
+          </div>
+          <a href="#" id="aboutUsLink">About Us</a>
+          <div class="about-us-content" id="aboutUsContent">
+            <p id="aboutUsText">
+              The Smart Parking System is an innovative solution designed to improve urban traffic flow...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <div class="bg"></div>
+
+  <div class="page-container">
+  
+    <h1 id="pageTitle" class="page-title">
+        <i class="ri-parking-box-fill"></i>
+        <span>Parking Setup</span>
+    </h1>
+
+    <!-- Banner يظهر عند التعديل -->
+    <div id="editBanner" class="edit-banner" style="display:none;">
+      ✏️ Edit mode enabled
+    </div>
+  
+    <div class="card-grid">
+      <div class="card">
+        <label id="countryLabel"><i class="ri-flag-fill"></i> Country</label>
+        <input type="text" id="country" value="Jordan" disabled>
+      </div>
+  
+      <div class="card">
+        <label id="governorateLabel"><i class="ri-map-fill"></i> Governorate</label>
+        <select id="governorate">
+          <option value="">Choose...</option>
+          <option value="Amman">Amman</option>
+          <option value="Zarqa">Zarqa</option>
+          <option value="Irbid">Irbid</option>
+          <option value="Balqa">Balqa</option>
+          <option value="Madaba">Madaba</option>
+          <option value="Karak">Karak</option>
+          <option value="Tafilah">Tafilah</option>
+          <option value="Ma'an">Ma'an</option>
+          <option value="Aqaba">Aqaba</option>
+          <option value="Jerash">Jerash</option>
+          <option value="Ajloun">Ajloun</option>
+          <option value="Mafraq">Mafraq</option>
+        </select>
+      </div>
+  
+      <div class="card">
+        <label id="companyLabel"><i class="ri-building-fill"></i> Company</label>
+        <input type="text" id="company" disabled>
+      </div>
+  
+      <div class="card">
+        <label id="locationLabel"><i class="ri-map-pin-2-fill"></i> Location</label>
+        <select id="location">
+          <option value="">Choose...</option>
+          <option value="Boulevard">Boulevard – Amman</option>
+          <option value="Abdali">Abdali Mall</option>
+          <option value="Mecca">Mecca Street</option>
+          <option value="Gardens Street">Gardens Street – Amman</option>
+          <option value="Sweifieh">Sweifieh – Amman</option>
+          <option value="Downtown Amman">Downtown – Amman</option>
+          <option value="Irbid City Center">Irbid City Center</option>
+          <option value="Zarqa Downtown">Zarqa Downtown</option>
+          <option value="Aqaba Downtown">Aqaba Downtown</option>
+        </select>
+      </div>
+  
+      <div class="card">
+        <label id="capacityLabel"><i class="ri-car-fill"></i> Parking Capacity</label>
+        <input type="number" id="capacity" placeholder="Enter number of cars">
+      </div>
+  
+      <div class="card">
+        <label id="floorsLabel"><i class="ri-building-2-fill"></i> Number of Floors</label>
+        <input type="number" id="floors" placeholder="Example: 3">
+      </div>
+    </div>
+  
+    <section class="services-section">
+      <h2 id="servicesTitle">Additional Services</h2>
+      <div class="services-grid">
+        <label class="service-card">
+          <input type="checkbox" id="ev">
+          <i class="ri-charging-pile-fill"></i>
+          <span id="evLabel">Electric Car Charging</span>
+        </label>
+  
+        <label class="service-card">
+          <input type="checkbox" id="camera">
+          <i class="ri-camera-fill"></i>
+          <span id="cameraLabel">Security Cameras</span>
+        </label>
+  
+        <label class="service-card triangle-center">
+          <input type="checkbox" id="valet">
+          <i class="ri-user-2-fill"></i>
+          <span id="valetLabel">Valet Service</span>
+        </label>
+      </div>
+    </section>
+
+    
+   <!-- أزرار التحكم -->
+   <div class="action-buttons">
+    <button id="editBtn" class="edit-btn">
+      <i class="ri-edit-2-fill"></i>
+      <span>Edit</span>
+    </button>
+  
+    <button id="cancelBtn" class="cancel-btn">
+      <i class="ri-close-circle-fill"></i>
+      <span id="cancelText">Cancel Edit</span>
+    </button>
+  </div>
+  
+  <button id="saveBtn" class="save-btn">
+    <i class="ri-save-3-fill"></i>
+    <span id="saveText">Save Parking Info</span>
+  </button>
+
+</div>
+<br>
+  <br>
+
+  <!-- Footer -->
+  <div class="site-footer">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    &copy; 2025 autoSpot. All rights reserved. |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Terms of Service</a>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/parking_setup.js') }}"></script>
+</body>
+</html>

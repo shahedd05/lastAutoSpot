@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>autoSpot - Register Owner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/register_owner.css') }}">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+ <!-- Navbar -->
+ <div class="navbar">
+  <div class="logo-container">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="autoSpot logo">
+    <div class="logo-text">autoSpot</div>
+  </div>
+  <div class="nav-links">
+    <a href="/index.html">Home</a>
+    <div class="dropdown" id="menuDropdown">
+      <a href="javascript:void(0);" class="menu-toggle"><i class="fas fa-bars"></i></a>
+      <div class="dropdown-content scrollable-dropdown">
+        <div class="dropdown settings-dropdown" id="settingsDropdown">
+          <a href="javascript:void(0);" class="settings-toggle">
+            <i class="fas fa-cog"></i> <span id="settingsLabel">Settings</span>
+          </a>
+          <div class="settings-menu">
+            <a href="#" id="translateOption">🌐 العربية</a>
+            <a href="#" id="lightModeOption">🌞 Light Mode</a>
+          </div>
+        </div>
+        <div class="contact-dropdown">
+          <a href="#" id="contactLabel">Contact Us</a>
+          <div class="contact-info">
+            <div><span id="phoneNumber"><i class="fas fa-phone contact-icon"></i> +962 79 123 4567</span></div>
+            <div><span id="emailAddress"><i class="fas fa-envelope contact-icon"></i> info@autospot.com</span></div>
+            <div><span id="whatsappNumber"><i class="fab fa-whatsapp contact-icon"></i> +962 79 987 6543</span></div>
+          </div>
+        </div>
+        <a href="#" id="aboutUsLink">About Us</a>
+        <div class="about-us-content" id="aboutUsContent">
+          <p id="aboutUsText">
+            The Smart Parking System is an innovative solution designed to improve urban traffic flow...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Register Box -->
+  <div class="box" id="registerBox">
+    <h1>Create Account</h1>
+    <form id="registerForm">
+      
+      <input type="text" id="companyName" placeholder="Company Name" readonly style="background-color: #ccc; color: #000;">
+
+      
+      <input type="text" id="ownerName" placeholder="Owner Name" required>
+
+      
+      <input type="email" id="email" placeholder="Email" required>
+
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+
+      <p id="passwordError" style="color: #FF6F22; font-size: 13px; display:none;">Passwords do not match!</p>
+      <button type="submit">Sign Up</button>
+    </form>
+    <br>
+    <h4>Already have an account? <a href="/login_owner">Login</a></h4>
+  </div>
+
+  <!-- OTP Box -->
+  <div class="box" id="otpBox" style="display: none;">
+    <h1 id="otpTitle">Enter Verification Code</h1>
+    <p id="otpMessage">We sent a code to your email.</p>
+
+    <div class="otp-inputs">
+      <input type="text" maxlength="1" class="otp-digit">
+      <input type="text" maxlength="1" class="otp-digit">
+      <input type="text" maxlength="1" class="otp-digit">
+      <input type="text" maxlength="1" class="otp-digit">
+    </div>
+
+    <p id="timer">01:00</p>
+
+    <button id="confirmOtpBtn" disabled>Confirm</button>
+    <button id="resendOtpBtn" disabled>Resend Code</button>
+  </div>
+
+  <!-- Footer -->
+  <div class="site-footer">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    &copy; 2025 autoSpot. All rights reserved. |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms of Service</a>
+  </div>
+
+ 
+  <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/register_owner.js') }}"></script>
+</body>
+</html>

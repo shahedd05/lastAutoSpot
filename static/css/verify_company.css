@@ -1,0 +1,95 @@
+.verify-container {
+  max-width: 520px;
+  margin: 80px auto;
+  background-color: #0b1012;
+  padding: 35px 30px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 10px #B2202C,
+    0 0 20px #B2202C,
+    0 0 40px #B2202C;
+  color: #F4F1E1;
+  transition: box-shadow 0.3s ease;
+}
+
+.verify-container:hover {
+  box-shadow:
+    0 0 10px #B2202C,
+    0 0 30px #B2202C,
+    0 0 60px #B2202C;
+}
+
+.verify-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.verify-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #F4F1E1;
+}
+
+.verify-container input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 22px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.verify-container input:focus {
+  outline: none;
+  border-color: #B2202C;
+  box-shadow: 0 0 0 2px rgba(178, 32, 44, 0.3);
+}
+
+.verify-container button {
+  width: 100%;
+  padding: 14px;
+  background-color: #B2202C;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.verify-container button:hover {
+  background-color: #8e1a24;
+  transform: scale(1.03);
+}
+
+.verify-message {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.verify-message.success {
+  background-color: #1f4d2e;
+  color: #c6f6d5;
+  border: 1px solid #2e7d4f;
+}
+
+.verify-message.error {
+  background-color: #4d1f1f;
+  color: #f6c6c6;
+  border: 1px solid #7d2e2e;
+}

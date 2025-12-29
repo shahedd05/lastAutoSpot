@@ -1,0 +1,207 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* ===== Dark Mode (Default) ===== */
+  body {
+    background: #0f0f12;
+    color: #fff;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .card {
+    background: #1b1b20;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    animation: slideUp 0.8s ease;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .sub {
+    color: #aaa;
+    margin-bottom: 15px;
+  }
+  
+  /* Booking Box */
+  .booking-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .image-box img {
+    width: 160px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .booking-text h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .booking-text p {
+    margin: 4px 0;
+  }
+  
+  /* Timer */
+  .timer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e11d48;
+  }
+  
+  /* Timer Animation */
+  @keyframes pulse {
+    0% { color: #e11d48; transform: scale(1); }
+    50% { color: #ff4d6d; transform: scale(1.1); }
+    100% { color: #e11d48; transform: scale(1); }
+  }
+  
+  .timer.warning {
+    animation: pulse 1s infinite;
+  }
+  
+  /* Buttons */
+  button {
+    background: #e11d48;
+    border: none;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #b30035;
+    animation: glow 1.5s infinite;
+  }
+  
+  /* Button Animation */
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px #e11d48; }
+    50% { box-shadow: 0 0 20px #ff4d6d; }
+    100% { box-shadow: 0 0 5px #e11d48; }
+  }
+  
+  /* Inputs */
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #121216;
+    border: 1px solid #2a2a2f;
+    color: #fff;
+    border-radius: 6px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Payment Options */
+  .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #2a2a2f;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    background: #141418;
+    cursor: pointer;
+    transition: border 0.3s ease, transform 0.3s ease;
+  }
+  
+  .payment-option:hover {
+    border-color: #e11d48;
+    transform: translateY(-2px);
+  }
+  
+  .payment-option input {
+    width: 20px;
+    height: 20px;
+    accent-color: #e11d48;
+  }
+  
+  /* Notes */
+  textarea {
+    min-height: 80px;
+  }
+  
+  /* ===== Light Mode ===== */
+  body.light {
+    background: #f5f5f5;
+    color: #222;
+  }
+  
+  body.light .card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    color: #222;
+  }
+  
+  body.light .sub {
+    color: #666;
+  }
+  
+  body.light .timer {
+    color: #b30000;
+  }
+  
+  body.light button {
+    background: #b30000;
+    color: #fff;
+  }
+  
+  body.light button:hover {
+    background: #800000;
+  }
+  
+  body.light input,
+  body.light textarea {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    color: #222;
+  }
+  
+  body.light .payment-option {
+    border: 1px solid #ccc;
+    background: #fafafa;
+  }
+  
+  /* ===== Animations ===== */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }

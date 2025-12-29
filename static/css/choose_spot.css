@@ -1,0 +1,345 @@
+/* ===== Base ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #2e2c2d, #0b070a);
+  color: #fff;
+}
+
+/* ===== Light Mode ===== */
+body.light {
+  background: radial-gradient(circle at top, #f4f4f4, #e0e0e0);
+  color: #222;
+}
+
+/* ===== Header ===== */
+.header {
+  padding: 25px 50px;
+}
+body.light .header {
+  background: #fff;
+  color: #222;
+}
+
+/* ===== Breadcrumb ===== */
+.breadcrumb {
+  font-size: 13px;
+}
+.breadcrumb a,
+.breadcrumb span {
+  color: #aaa;
+  text-decoration: none;
+}
+.breadcrumb .active {
+  color: #fff;
+  font-weight: bold;
+}
+body.light .breadcrumb a,
+body.light .breadcrumb span {
+  color: #555;
+}
+body.light .breadcrumb .active {
+  color: #000;
+}
+
+/* ===== Title ===== */
+.title-row h1 {
+  margin: 10px 0 5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.title-row p {
+  color: #bbb;
+  margin: 0;
+}
+body.light .title-row p {
+  color: #666;
+}
+
+/* ===== Badge ===== */
+.badge {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 50px;
+  background: rgba(151, 4, 53, 0.2);
+  color: #970435;
+  border: 1px solid rgba(151, 4, 53, 0.4);
+}
+body.light .badge {
+  background: rgba(255, 200, 200, 0.4);
+  color: #b30000;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+}
+
+/* ===== Divider ===== */
+.header-divider {
+  margin-top: 18px;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+body.light .header-divider {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ===== Layout ===== */
+.content {
+  display: flex;
+  gap: 40px;
+  padding: 40px 30px 40px 20px;
+}
+
+/* ===== Left Panel ===== */
+.details {
+  width: 300px;
+  background: #151015;
+  border-radius: 14px;
+  padding: 25px;
+  border: 1px solid #333;
+}
+body.light .details {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  color: #222;
+}
+.box div {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  color: #ccc;
+}
+body.light .box div {
+  color: #333;
+}
+
+/* ===== Extra Services ===== */
+.extras {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+}
+.extras h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+.extras label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #ccc;
+  cursor: pointer;
+}
+.extras input[type="checkbox"] {
+  accent-color: #970435;
+  cursor: pointer;
+}
+body.light .extras {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+}
+body.light .extras h3 {
+  color: #222;
+}
+body.light .extras label {
+  color: #333;
+}
+
+/* ===== Confirm Button ===== */
+.confirm {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: #970435;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  font-weight: bold;
+  transition: 0.3s;
+}
+body.light .confirm {
+  background: #b30000;
+  color: #fff;
+}
+.confirm:hover {
+  background: #800030;
+}
+body.light .confirm:hover {
+  background: #800000;
+}
+.confirm.active::after {
+  content: "➜";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #fff;
+}
+
+/* ===== Right Panel ===== */
+.parking {
+  flex: 1;
+}
+
+/* ===== Top Info ===== */
+.top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+/* ===== Timer ===== */
+.timer-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.timer-label {
+  font-size: 11px;
+  color: #aaa;
+}
+.timer {
+  background: #1c1116;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+body.light .timer {
+  background: #eee;
+  color: #222;
+}
+
+/* ===== Legend ===== */
+.legend {
+  display: flex;
+  gap: 15px;
+}
+.legend div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+.key {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+.key.available {
+  border: 2px dashed #555;
+  background: #f9f9f9;
+}
+.key.taken {
+  background: #e74c3c;
+}
+.key.selected {
+  background: #970435;
+}
+body.light .key.available {
+  border: 2px dashed #999;
+  background: #fff;
+}
+body.light .key.taken {
+  background: #ff6666;
+}
+body.light .key.selected {
+  background: #b30000;
+}
+
+/* ===== Floor ===== */
+.floor {
+  margin-bottom: 15px;
+  color: #bbb;
+}
+body.light .floor {
+  color: #333;
+}
+
+/* ===== Grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+/* ===== Slots ===== */
+.slot {
+  height: 80px;
+  border-radius: 12px;
+  border: 2px dashed #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #ccc;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+}
+.slot:hover {
+  transform: translateY(-2px);
+}
+.slot.taken {
+  background: #e74c3c;
+  border: 2px solid #e74c3c;
+  color: #fff;
+  cursor: not-allowed;
+}
+/* ✅ رمز فوق المكان المحجوز */
+.slot.taken::after {
+  content: "🚫"; /* ممكن تغييره إلى 🔒 */
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 18px;
+  color: #fff;
+}
+body.light .slot.taken::after {
+  color: #fff;
+}
+
+.slot.selected {
+  background: #970435;
+  border: 2px solid #970435;
+  color: #fff;
+}
+.slot.selected::after {
+  content: "✓";
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  color: #970435;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+body.light .slot {
+  border: 2px dashed #999;
+  color: #333;
+}
+body.light .slot.taken {
+  background: #ff6666;
+  border: 2px solid #ff6666;
+  color: #fff;
+}
+body.light .slot.selected {
+  background: #b30000;
+  border: 2px solid #b30000;
+  color: #fff;
+}
+body.light .slot.selected::after {
+  background: #fff;
+  color: #b30000;
+}

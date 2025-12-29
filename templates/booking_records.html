@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookings | Smart Parking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/booking_records.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+ <!-- Navbar -->
+ <div class="navbar">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="autoSpot logo">
+      <div class="logo-text">autoSpot</div>
+    </div>
+    <div class="nav-links">
+      <a href="/parking_setup">Home</a>
+      <a href="/index"id="logoutLink">Logout</a>
+      <div class="dropdown" id="menuDropdown">
+        <a href="javascript:void(0);" class="menu-toggle"><i class="fas fa-bars"></i></a>
+        <div class="dropdown-content scrollable-dropdown">
+          <div class="dropdown settings-dropdown" id="settingsDropdown">
+            <a href="javascript:void(0);" class="settings-toggle">
+              <i class="fas fa-cog"></i> <span id="settingsLabel">Settings</span>
+            </a>
+            <div class="settings-menu">
+              <a href="#" id="translateOption">🌐 العربية</a>
+              <a href="#" id="lightModeOption">🌞 Light Mode</a>
+            </div>
+          </div>
+          <div class="contact-dropdown">
+            <a href="#" id="contactLabel">Contact Us</a>
+            <div class="contact-info">
+              <div><span id="phoneNumber"><i class="fas fa-phone contact-icon"></i> +962 79 123 4567</span></div>
+              <div><span id="emailAddress"><i class="fas fa-envelope contact-icon"></i> info@autospot.com</span></div>
+              <div><span id="whatsappNumber"><i class="fab fa-whatsapp contact-icon"></i> +962 79 987 6543</span></div>
+            </div>
+          </div>
+          <a href="#" id="aboutUsLink">About Us</a>
+          <div class="about-us-content" id="aboutUsContent">
+            <p id="aboutUsText">
+              The Smart Parking System is an innovative solution designed to improve urban traffic flow...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<main class="container">
+
+    <div class="header">
+        <h1 id="pageTitle">Bookings History</h1>
+        <button class="export" id="exportBtn">⬇ Export Data</button>
+    </div>
+
+    <div class="filters">
+        <!-- ✅ بحث بالاسم فقط -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input
+                type="text"
+                id="search"
+                placeholder="Search by user id">
+        </div>
+
+        <!-- ✅ فلترة بالوقت فقط -->
+        <div class="date-range">
+            <input type="date" id="fromDate">
+            <input type="date" id="toDate">
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>User Name</th> <!-- ✅ تم التعديل هنا -->
+                  <th>Spot ID</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th>Status</th>
+              </tr>
+          </thead>
+          <tbody id="table">
+              <!-- ✅ يتم تعبئة البيانات ديناميكياً من السيرفر -->
+          </tbody>
+      </table>
+  </div>
+  
+
+</main>
+
+  <!-- Footer -->
+  <div class="site-footer">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    &copy; 2025 autoSpot. All rights reserved. |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Terms of Service</a>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/booking_records.js') }}"></script>
+</body>
+</html>

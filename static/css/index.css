@@ -1,0 +1,56 @@
+.roles-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px; 
+    text-align: center;
+    padding-bottom: 60px;
+  }
+  
+  .roles-container h2 {
+    font-size: 2.3rem;
+    color: #ff4c4c;
+    text-shadow: 0 0 10px #ff4c4c;
+    margin-bottom: 2rem;
+  }
+  
+  .roles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  
+  .role {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #ff4c4c;
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: 0 0 15px #ff4c4c;
+    width: 180px;
+    background-color: #1a1a1a;
+    text-align: center;
+  }
+  
+  .role:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px #ff4c4c;
+  }
+  
+  .role img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .label {
+    font-size: 1.15rem;
+    color: #fff;
+  }
+  

@@ -1,0 +1,335 @@
+:root {
+  --text: #e6e6e6;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.12);
+  --burgundy: #800020;
+  --burgundy-dark: #5e0018;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 50%, #80002033, transparent 70%),
+    radial-gradient(circle at 70% 30%, #ffffff11, transparent 70%);
+  animation: bgMove 20s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes bgMove {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.25) translate(-40px, -30px); }
+}
+
+.page-container {
+  max-width: 850px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ===== Title ===== */
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 35px;
+  color: var(--burgundy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+}
+
+/* ===== Form Cards ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 19px;
+  margin-bottom: 35px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 28px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--burgundy);
+  box-shadow: 0 0 10px #80002055;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+select,
+input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 14px;
+  appearance: none;
+}
+
+select option {
+  background: #1a1a1a;
+  color: #e6e6e6;
+  font-size: 15px;
+}
+
+/* =========================
+   Additional Services
+   ========================= */
+.services-section h2 {
+  color: var(--burgundy);
+  margin-bottom: 20px;
+  font-size: 35px;
+  text-align: center;
+}
+
+/* ===== Desktop (Triangle Layout) ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px
+}
+
+/* الكرت الثالث بالنص */
+.triangle-center {
+  grid-column: 1 / span 2;
+  justify-self: center;
+}
+
+/* ===== Service Card ===== */
+.service-card {
+  width: 100%;
+  max-width: 220px;
+  height: 120px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 25px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* Hide checkbox */
+.service-card input {
+  display: none;
+}
+
+/* Icon */
+.service-card i {
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Text */
+.service-card span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Checked state */
+.service-card:has(input:checked) {
+  border-color: #ff003c;
+  box-shadow: 0 0 15px rgba(255, 0, 60, 0.6);
+  background: rgba(255, 0, 60, 0.1);
+}
+
+.service-card input:checked + i,
+.service-card input:checked ~ span {
+  color: #ff003c;
+}
+
+/* ===== Action Buttons (Edit + Cancel side by side) ===== */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.edit-btn, .cancel-btn {
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: fit-content;
+}
+
+/* زر Edit */
+.edit-btn {
+  background: transparent;
+  color: var(--burgundy);
+  border: 2px solid var(--burgundy);
+}
+
+.edit-btn:hover {
+  background: var(--burgundy);
+  color: #fff;
+  box-shadow: 0 0 12px #80002055;
+}
+
+/* زر Cancel */
+.cancel-btn {
+  background: transparent;
+  color: #999;
+  border: 2px solid #999;
+}
+
+.cancel-btn:hover {
+  background: #999;
+  color: #fff;
+  box-shadow: 0 0 12px #99999955;
+}
+
+/* ===== Edit Banner ===== */
+.edit-banner {
+  text-align: center;
+  background: var(--burgundy);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Mobile / Small Screens ===== */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .triangle-center {
+    grid-column: auto;
+    justify-self: stretch;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ===== Save Button ===== */
+.save-btn {
+  display: block;
+  margin: 35px auto 0;
+  padding: 12px 28px;
+  background: var(--burgundy);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: fit-content;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background: var(--burgundy-dark);
+  box-shadow: 0 0 12px #80002055;
+}
+
+/* =========================
+ LIGHT MODE
+ ========================= */
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+.light-mode .bg {
+  background:
+    radial-gradient(circle at 30% 50%, #80002022, transparent 70%),
+    radial-gradient(circle at 70% 30%, #00000010, transparent 70%);
+}
+
+.light-mode .card {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.light-mode .card:hover {
+  box-shadow: 0 0 10px #80002033;
+}
+
+.light-mode label,
+.light-mode select,
+.light-mode input,
+.light-mode .page-title,
+.light-mode .services-section h2,
+.light-mode .service-card span {
+  color: #222;
+}
+
+.light-mode select,
+.light-mode input {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.light-mode select option {
+  background: #fff;
+  color: #222;
+}
+
+.light-mode .service-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: transparent;
+}
+
+.light-mode .service-card i {
+  color: #333;
+}
+
+.light-mode .service-card:has(input:checked) {
+  border-color: #ff003c;
+  box-shadow: 0 0 15px rgba(255, 0, 60, 0.4);
+  background: rgba(255, 0, 60, 0.1);
+}
+
+.light-mode .save-btn {
+  background: var(--burgundy);
+  color: #fff;
+}
+
+.light-mode .save-btn:hover {
+  background: var(--burgundy-dark);
+  box-shadow: 0 0 }

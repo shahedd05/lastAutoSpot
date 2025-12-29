@@ -1,0 +1,122 @@
+/* --- Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #191919;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* ===== Box ===== */
+  .box {
+    background-color: #0b1012;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow:
+      0 0 10px #B2202C,
+      0 0 10px #B2202C,
+      0 0 10px #B2202C,
+      0 0 200px #B2202C;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    transition: 0.3s;
+    margin: 40px auto;
+  }
+  
+  .box:hover {
+    box-shadow:
+      0 0 10px #B2202C,
+      0 0 20px #B2202C,
+      0 0 40px #B2202C,
+      0 0 80px #B2202C;
+  }
+  
+  h1, h4, p {
+    color: #F4F1E1;
+    margin-bottom: 25px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 100%;
+    max-width: 200px;
+    padding: 14px;
+    background: #252424;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+  }
+  
+  button:hover {
+    background-color: #252424;
+    transform: scale(1.05);
+  }
+  
+  a {
+    color: #F4F1E1;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    background: #a92828;
+    transform: scale(1.05);
+  }
+  
+  /* ===== OTP Inputs ===== */
+  .otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  
+  .otp-inputs input {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid #B2202C;
+    border-radius: 10px;
+    background-color: #191919;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .otp-inputs input:focus {
+    border-color: #fff;
+    box-shadow: 0 0 8px #B2202C;
+  }
+  
+  @media (max-width: 480px) {
+    .otp-inputs input {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }

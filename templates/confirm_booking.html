@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Parking - Confirm Booking</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Confirm_booking.css') }}">
+</head>
+<body>
+
+<main class="container">
+
+  <!-- Booking Summary -->
+  <section class="card full-width">
+    <h2 id="pageTitle">Complete Your Booking</h2>
+    <p class="sub" id="pageSub">Review your reservation details</p>
+
+    <!-- ✅ تايمر -->
+    <div class="timer-wrapper">
+      <small class="timer-label" id="timerLabel">Time left to complete payment</small>
+      <div class="timer"> <span id="time">15:00</span></div>
+    </div>
+
+    <div class="booking-box">
+      <div class="booking-text">
+        <h3 id="spotInfo">{{ spot_id }}</h3>
+        
+        <p id="companyInfo">{{ company }}</p>
+        <p id="governorateInfo">{{ governorate }}</p>
+        <p id="timeInfo">{{ booking_time }}</p>
+        <p><strong id="costInfo">{{ total_cost }} JOD</strong></p>
+        <button id="editBtn" type="button" onclick="window.history.back()">Edit Booking</button>
+      </div>
+    </div>
+  </section>
+
+ 
+  <form id="paymentForm" action="/user/pay" method="POST">
+
+    <input type="hidden" name="spot_id" id="spotId" value="{{ spot_id }}">
+    <input type="hidden" name="user_id" value="{{ user_id }}">
+    <input type="hidden" name="company" id="companyHidden" value="{{ company }}">
+    <input type="hidden" name="governorate" id="governorateHidden" value="{{ governorate }}">
+    <input type="hidden" name="extra_services" id="extraServicesHidden" value="{{ extra_services|join(',') }}">
+    <input type="hidden" name="total_cost" id="totalCostHidden" value="{{ total_cost }}">
+
+    <!-- Payment Method -->
+    <section class="full-width">
+      <h3 class="payment-title" id="paymentTitle">Select Payment Method</h3>
+      <label class="payment-option">
+        <input type="radio" name="payment_method" value="card">
+        <span id="cardOption">Visa / MasterCard</span>
+      </label>
+
+      <!-- دفع عبر كليك -->
+      <label class="payment-option">
+        <input type="radio" name="payment_method" value="click">
+        <span id="clickOption">CliQ Payment</span>
+      </label>
+    </section>
+
+    <!-- Card Details -->
+    <section class="card full-width" id="cardDetails" style="display:none;">
+      <h3 id="cardDetailsTitle">Card Details</h3>
+      <input type="text" name="cardName" id="cardName" placeholder="Card Holder Name">
+      <input type="text" name="cardNumber" id="cardNumber" placeholder="Card Number">
+      <div class="row">
+        <input type="text" name="expiry" id="expiry" placeholder="MM / YY">
+        <input type="text" name="cvc" id="cvc" placeholder="CVC">
+      </div>
+    </section>
+
+    <!-- Click Details -->
+    <section class="card full-width" id="clickDetails" style="display:none;">
+      <h3 id="clickDetailsTitle">CliQ Payment Details</h3>
+      <input type="text" name="clickName" id="clickName" placeholder="Account Holder Name">
+      <input type="text" name="clickNumber" id="clickNumber" placeholder="Click Account Number">
+    </section>
+
+    <!-- زر الدفع النهائي -->
+    <button type="submit" class="pay-btn full-width" id="payBtn">Confirm Reservation & Pay</button>
+  </form>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/Confirm_booking.js') }}"></script>
+
+</body>
+</html>
